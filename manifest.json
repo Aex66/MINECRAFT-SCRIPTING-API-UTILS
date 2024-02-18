@@ -1,0 +1,52 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "MINECRAFT SCRIPTING API UTILS",
+		"description": "",
+		"uuid": "eaf4758d-49df-4551-b7d1-7614b21c1ebe",
+		"version": [
+			1,
+			0,
+			0
+		],
+		"min_engine_version": [
+			1,
+			20,
+			30
+		]
+	},
+	"modules": [
+		{
+			"description": "",
+			"type": "data",
+			"uuid": "9f5d05a4-4edd-44a8-8b18-23f640afbf5b",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"description": "",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "d01994c4-693d-48a8-8a7c-595187897393",
+			"version": [
+				1,
+				0,
+				0
+			],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.9.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.2.0-beta"
+		}
+	]
+}
