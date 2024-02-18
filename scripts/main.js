@@ -6,3 +6,4 @@ import './Leaderboards.js';
 import './PearlCooldown.js';
 import './Hit.js';
 import './BowDing.js';
+import './Projectile.js';
