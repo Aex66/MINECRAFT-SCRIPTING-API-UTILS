@@ -1,3 +1,6 @@
+/**
+ * CREATE LEADERBOARDS
+ */
 //NOT MADE BY AEX66
 import { Vector, system, world } from '@minecraft/server';
 import { ModalFormData } from '@minecraft/server-ui';

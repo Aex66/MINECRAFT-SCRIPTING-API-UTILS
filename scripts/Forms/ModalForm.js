@@ -1,3 +1,6 @@
+/**
+ * CREATE A MODAL FORM
+ */
 import { world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 function ModalForm(player) {

@@ -1,3 +1,6 @@
+/**
+* CREATE A MESSAGE FORM
+*/
 import { world } from "@minecraft/server";
 import { MessageFormData } from "@minecraft/server-ui";
 function MessageForm(player) {

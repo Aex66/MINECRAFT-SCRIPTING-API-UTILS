@@ -1,3 +1,7 @@
+/**
+ * GET SERVER TPS
+ */
+
 import { system } from "@minecraft/server"
 
 let delta = Date.now()

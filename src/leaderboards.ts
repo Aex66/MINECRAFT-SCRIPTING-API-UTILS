@@ -1,5 +1,8 @@
-//NOT MADE BY AEX66
+/**
+ * CREATE LEADERBOARDS
+ */
 
+//NOT MADE BY AEX66
 import { Entity, Player, ScoreboardIdentity, ScoreboardObjective, Vector, Vector3, system, world } from '@minecraft/server';
 import { ModalFormData } from '@minecraft/server-ui';
 
