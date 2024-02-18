@@ -1,4 +1,4 @@
-import { system, world } from "@minecraft/server";
+import { system } from "@minecraft/server";
 let delta = Date.now();
 const TPS = [];
 system.runInterval(() => {
@@ -8,7 +8,9 @@ system.runInterval(() => {
     TPS.push(currentTPS);
     delta = Date.now();
 });
-system.runInterval(() => {
-    const averageTPS = TPS.reduce((prev, current) => prev + current) / TPS.length;
-    world.sendMessage(`${averageTPS}`);
-}, 60);
+/**
+ * GET AVERAGE TPS
+ */
+function getAvgTPS(decimals = 2) {
+    return (TPS.reduce((prev, current) => prev + current) / TPS.length).toFixed(decimals);
+}
