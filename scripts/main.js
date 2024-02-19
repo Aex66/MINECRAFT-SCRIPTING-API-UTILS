@@ -7,3 +7,4 @@ import './PearlCooldown.js';
 import './Hit.js';
 import './BowDing.js';
 import './Projectile.js';
+import './Radius.js';
