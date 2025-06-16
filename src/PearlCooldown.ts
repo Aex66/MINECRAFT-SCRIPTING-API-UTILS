@@ -6,20 +6,17 @@ import { Player, world } from "@minecraft/server";
 
 const pearlCooldown = 60 //Seconds
 
-world.beforeEvents.itemUse.subscribe(res => {
-    if (!(res.source instanceof Player)) return;
+world.beforeEvents.itemUse.subscribe((event) => {
+    const { source: player, itemStack: item } = event
 
-    const source = res.source
+    if (!(player instanceof Player) || item.typeId !== 'minecraft:ender_pearl') return;
 
-    if (res.itemStack.typeId !== 'minecraft:ender_pearl') return;
+    const cooldown = player.getDynamicProperty('pearl_cooldown') as number ?? 0
 
-    const cooldown = res.source.getDynamicProperty('pearl_cooldown') as number ?? 0
+    if (cooldown && (cooldown > Date.now())) return (
+        event.cancel = true,
+        player.sendMessage(`§cYou can't use ender pearls now!`)
+    )
 
-    if (cooldown && (cooldown > Date.now())) {
-        res.cancel = true
-        source.sendMessage(`§cYou can't use ender pearls now!`)
-        return;
-    }
-
-    res.source.setDynamicProperty('pearl_cooldown', Date.now() + (pearlCooldown * 1000))
+    player.setDynamicProperty('pearl_cooldown', Date.now() + (pearlCooldown * 1000))
 })

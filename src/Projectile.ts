@@ -1,28 +1,27 @@
 /**
- * SHOOT PROJECTILES
+ * SHOOT PROJECTILES WITH ITEMS
  */
 
-import { Vector, world } from "@minecraft/server";
+import { Player, world } from "@minecraft/server";
 
-const velocity = 4
+const magnitude = 4
 
 /**
  * USE BLAZE ROD AND RIGHT CLICK TO SHOOT SNOWBALLS
  */
-world.afterEvents.itemUse.subscribe((res) => {
-    const { itemStack, source: player } = res
+world.afterEvents.itemUse.subscribe(({ source: player, itemStack: item }) => {
     
-    if (itemStack.typeId !== 'minecraft:blaze_rod') return;
+    if (!(player instanceof Player) || item.typeId !== 'minecraft:blaze_rod') return;
 
     const playerDirection = player.getViewDirection();
 
-    const projectileVelocity = new Vector(playerDirection.x * velocity, playerDirection.y * velocity, playerDirection.z * velocity);
+    const velocity = { x: playerDirection.x * magnitude, y: playerDirection.y * magnitude, z: playerDirection.z * magnitude }
     
-    const entity = player.dimension.spawnEntity(`snowball`, player.getHeadLocation());
+    const entity = player.dimension.spawnEntity('minecraft:snowball', player.getHeadLocation());
     
     const projectile = entity.getComponent('projectile');
     projectile.owner = player;
     projectile.catchFireOnHurt = true
 
-    projectile.shoot(projectileVelocity);
+    projectile.shoot(velocity);
 })

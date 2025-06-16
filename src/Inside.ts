@@ -1,3 +1,6 @@
+/**
+ * Check if a location is inside a bounding box
+ */
 import { Vector3, world } from "@minecraft/server";
 
 function isInsideBox(point: Vector3, boxMin: Vector3, boxMax: Vector3): boolean {

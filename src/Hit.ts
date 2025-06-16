@@ -27,7 +27,7 @@ world.afterEvents.entityHitEntity.subscribe((res) => {
     call(player, victim)
 })
 
-//Add the tag "levitation" to any entity and then hit the entity.
+//Will add the levitation effect to any entity that has the tag 'levitation' when hit.
 Hit.on('levitation', (plr) => {
     plr.addEffect('levitation', 60)
 })
